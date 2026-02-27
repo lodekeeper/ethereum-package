@@ -168,8 +168,6 @@ def get_config(
                 + "ethpandaops/dora:gloas-support"
             )
         if network_params.eip7782_fork_epoch < constants.FAR_FUTURE_EPOCH:
-            # EIP-7782 reuses Gloas-era structures; use gloas-support Dora image
-            # Update this tag when a dedicated eip7782-support image is available
             IMAGE_NAME = (
                 docker_cache_params.url
                 + (
@@ -177,7 +175,7 @@ def get_config(
                     if docker_cache_params.enabled
                     else ""
                 )
-                + "ethpandaops/dora:gloas-support"
+                + "nflaig/dora:eip7782-support"
             )
         if network_params.heze_fork_epoch < constants.FAR_FUTURE_EPOCH:
             IMAGE_NAME = (
